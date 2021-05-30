@@ -4,9 +4,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.esieasport.R
-import com.example.esieasport.presentation.list.Sport
+import com.example.esieasport.presentation.list.Muscle
 
-class SportAdapter(private var dataSet: List<Sport>) :
+class SportAdapter(private var dataSet: List<Muscle>) :
     RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
     /**
@@ -21,7 +21,7 @@ class SportAdapter(private var dataSet: List<Sport>) :
             textView = view.findViewById(R.id.sport_name)
         }
     }
-    fun updateList(list: List<Sport>){
+    fun updateList(list: List<Muscle>){
         dataSet = list
         notifyDataSetChanged()
     }
@@ -40,7 +40,7 @@ class SportAdapter(private var dataSet: List<Sport>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val sport: Sport = dataSet[position]
+        val sport: Muscle = dataSet[position]
         viewHolder.textView.text = sport.name
     }
 

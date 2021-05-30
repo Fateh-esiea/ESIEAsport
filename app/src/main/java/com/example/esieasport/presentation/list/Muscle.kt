@@ -1,5 +1,6 @@
 package com.example.esieasport.presentation.list
 
-data class Sport (
+data class Muscle (
     val name: String
+
 )
