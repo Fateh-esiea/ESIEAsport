@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/ExerciseListFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/ExerciseListFragment"
         android:name="com.example.esieasport.presentation.list.SportListFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_sport_list">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/navigateToExerciseDetailFragment"
+            app:destination="@id/ExerciseDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/ExerciseDetailFragment"
         android:name="com.example.esieasport.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/navigateToExerciseListFragment"
+            app:destination="@id/ExerciseListFragment" />
     </fragment>
 </navigation>

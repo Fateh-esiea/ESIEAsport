@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.esieasport.R
@@ -24,7 +25,9 @@ class SportListFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 
-    private val adapter = SportAdapter(listOf())
+    private val adapter = SportAdapter(listOf(), ::onClickedMuscle)
+
+
 
     private val layoutManager = LinearLayoutManager(context)
 
@@ -41,6 +44,7 @@ class SportListFragment : Fragment() {
 
 
         recyclerView = view.findViewById(R.id.sport_recyclerview)
+
 
         recyclerView.apply {
             layoutManager = this@SportListFragment.layoutManager
@@ -76,6 +80,9 @@ class SportListFragment : Fragment() {
 
        // val muscleList = arrayListOf<Muscle>().apply {
 
-
         }
+
+    private fun onClickedMuscle(sport: Sport) {
+        findNavController().navigate(R.id.navigateToExerciseDetailFragment )
     }
+}

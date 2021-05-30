@@ -4,24 +4,21 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.esieasport.R
-import com.example.esieasport.presentation.list.Muscle
+import com.example.esieasport.presentation.list.Sport
 
-class SportAdapter(private var dataSet: List<Muscle>) :
-    RecyclerView.Adapter<SportAdapter.ViewHolder>() {
+class SportAdapter(private var dataSet: List<Sport>, var listener: ((Sport) -> Unit)? = null) : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
 
         init {
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.sport_name)
+
         }
     }
-    fun updateList(list: List<Muscle>){
+    fun updateList(list: List<Sport>){
         dataSet = list
         notifyDataSetChanged()
     }
@@ -40,8 +37,12 @@ class SportAdapter(private var dataSet: List<Muscle>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val sport: Muscle = dataSet[position]
+        val sport = dataSet[position]
         viewHolder.textView.text = sport.name
+        viewHolder.itemView.setOnClickListener{
+        listener?.invoke(sport)
+
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
