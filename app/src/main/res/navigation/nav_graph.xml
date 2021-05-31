@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/ExerciseDetailFragment"
-        android:name="com.example.esieasport.SecondFragment"
+        android:name="com.example.esieasport.presentation.detail.ExerciseDetailFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_sport_detail">
 
         <action
             android:id="@+id/navigateToExerciseListFragment"
