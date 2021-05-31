@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.esieasport.R
 import com.example.esieasport.presentation.list.Sport
+import kotlin.reflect.KFunction1
 
 class SportAdapter(private var dataSet: List<Sport>, var listener: ((Sport) -> Unit)? = null) : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
@@ -26,8 +27,7 @@ class SportAdapter(private var dataSet: List<Sport>, var listener: ((Sport) -> U
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
-        val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.sport_item, viewGroup, false)
+        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.sport_item, viewGroup,false)
 
         return ViewHolder(view)
     }

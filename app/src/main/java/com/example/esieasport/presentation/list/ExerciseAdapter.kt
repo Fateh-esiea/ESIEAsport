@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.esieasport.R
 import com.example.esieasport.presentation.list.Exercise
 
-class ExerciseAdapter(private var dataSet: List<Exercise>, var listener: ((Exercise) -> Unit)? = null) : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
+class ExerciseAdapter(private var dataSet: List<Exercise>, var listener: ((Int) -> Unit)? = null) : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -40,7 +40,7 @@ class ExerciseAdapter(private var dataSet: List<Exercise>, var listener: ((Exerc
         val exercise = dataSet[position]
         viewHolder.textView.text = exercise.name
         viewHolder.itemView.setOnClickListener{
-            listener?.invoke(exercise)
+            listener?.invoke(position)
 
         }
     }

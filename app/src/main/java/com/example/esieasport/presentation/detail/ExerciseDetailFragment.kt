@@ -6,13 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.esieasport.R
 import com.example.esieasport.presentation.api.MuscleDetailResponse
-import com.example.esieasport.presentation.list.Singleton
-import com.example.esieasport.presentation.list.Exercise
+import com.example.esieasport.presentation.Singleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,15 +42,16 @@ class ExerciseDetailFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.exercise_recyclerview)
 
-       recyclerView.apply {
-           layoutManager = LinearLayoutManager(context)
-           adapter = this@ExerciseDetailFragment.adapter
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = this@ExerciseDetailFragment.adapter
         }
 
+        callApi()
+    }
 
-
-
-        Singleton.sportApi.getMuscleDetail("10").enqueue(object : Callback<MuscleDetailResponse> { //"10" la parenthèse
+   private fun callApi() {
+        Singleton.sportApi.getMuscleDetail(id).enqueue(object : Callback<MuscleDetailResponse> { //"10" la parenthèse
 
             override fun onFailure(call: Call<MuscleDetailResponse>, t: Throwable) {
                 //TODO("Not yet implemented")
@@ -69,11 +69,10 @@ class ExerciseDetailFragment : Fragment() {
         })
     }
 
-    private fun onClickedMuscle(exercise: Exercise) {
-
+    private fun onClickedMuscle(id: Int) {
+        findNavController().navigate(R.id.navigateToExerciseDetailFragment)
     }
-
-    }
+}
 
 
 

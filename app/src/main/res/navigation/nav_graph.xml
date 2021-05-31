@@ -21,6 +21,11 @@
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_sport_detail">
 
+        <argument
+            android:name="ExerciseId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+
         <action
             android:id="@+id/navigateToExerciseListFragment"
             app:destination="@id/ExerciseListFragment" />
